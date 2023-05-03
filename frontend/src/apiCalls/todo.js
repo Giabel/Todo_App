@@ -9,7 +9,7 @@ export const getTodos = async () => {
     }
 };
 
-export const CreateTodo = async (todo) => {
+export const createTodo = async (todo) => {
     try{
         const res = await axios.post("/api/todos/creat", todo);
     }catch (err){

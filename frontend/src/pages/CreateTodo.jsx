@@ -13,7 +13,7 @@ const CreateTodo = () => {
     const data = {
       title, description,
     }
-    const response = await CreateTodo(data);
+    const response = await createTodo(data);
     if(response.status ===201){
       alert("Todo Created");
       navigate("/")
