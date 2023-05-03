@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import { register } from "../apiCalls/user";
-import { userContext } from '../Context/UserContext';
+import { UserContext } from '../Context/UserContext';
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -13,7 +13,7 @@ const Register = () => {
   const [confrimPassword, setConfrimPassword] = useState("");
 
   const navigate = useNavigate();
-  const {user, setUser} = useContext(userContext);
+  const {user, setUser} = useContext(UserContext);
 
   const submitHandler =async (e) => {
     e.preventDefault();
@@ -42,23 +42,23 @@ const Register = () => {
       <h1 className="text-3xl my-3 font-bold">Register</h1>
       <form onSubmit={submitHandler}>
         <div className="mb-3">
-          <input type="text" placeholder='Enter Name...' className='focus:outline-none border-none p-2 rounded w-full' value={name}
+          <input type="text" value={name} placeholder='Enter Name...' className='focus:outline-none border-none p-2 rounded w-full' 
           onChange= {e => setName(e.target.value)}/>
         </div>
         <div className="mb-3">
-          <input type="email" placeholder='Enter Email...' className='focus:outline-none border-none p-2 rounded w-full' value={email}
+          <input type="email" value={email} placeholder='Enter Email...' className='focus:outline-none border-none p-2 rounded w-full' 
           onChange= {e => setEmail(e.target.value)}/>
         </div>
         <div className="mb-3">
-          <input type="number" placeholder='Enter Age...' className='focus:outline-none border-none p-2 rounded w-full' value={age} 
+          <input type="number" value={age} placeholder='Enter Age...' className='focus:outline-none border-none p-2 rounded w-full'  
           onChange= {e => setAge(e.target.value)}/>
         </div>
         <div className="mb-3">
-          <input type="password" placeholder='Enter Password...' className='focus:outline-none border-none p-2 rounded w-full' value={password}
+          <input type="password" value={password} placeholder='Enter Password...' className='focus:outline-none border-none p-2 rounded w-full' 
           onChange= {e => setPassword(e.target.value)}/>
         </div>
         <div className="mb-3">
-          <input type="password" placeholder='Confrim Password...' className='focus:outline-none border-none p-2 rounded w-full' value={confrimPassword} 
+          <input type="password" value={confrimPassword} placeholder='Confrim Password...' className='focus:outline-none border-none p-2 rounded w-full'  
           onChange= {e => setConfrimPassword(e.target.value)}/>
           
         </div>

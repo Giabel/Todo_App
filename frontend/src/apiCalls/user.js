@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 
 export const register = async (user) => {
     try{
@@ -54,7 +54,7 @@ export const updatePassword = async (data) => {
     }
 }
 
-export const deletUser = async () => {
+export const deleteUser = async () => {
     try{
         const res = await axios.delete("/api/users/delete");
         return res;

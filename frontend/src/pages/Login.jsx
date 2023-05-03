@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { userContext } from '../Context/UserContext';
+import { UserContext } from '../Context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../apiCalls/user';
 
@@ -8,7 +8,8 @@ import { login } from '../apiCalls/user';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const{user, setUser} = useContext(userContext);
+  //may be we can del
+  const{user, setUser} = useContext(UserContext);
   const navigate = useNavigate();
 
   const submitHandler =async (e) => {

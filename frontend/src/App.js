@@ -1,19 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import Home from './pages/Home.jsx';
+import Home from './pages/Home';
 import  Register  from './pages/Register';
 import  Login  from './pages/Login';
 import  Profile  from './pages/Profile';
 import { useContext, useEffect } from 'react';
-import { userContext } from './Context/UserContext';
+import { UserContext } from './Context/UserContext';
 import { getUser } from './apiCalls/user';
 import LoggedInHome from "./pages/LoggedInHome";
 import CreateTodo from './pages/CreateTodo';
+import UnProtectedRoutes from './components/UnProtectedRoutes';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import UpdateProfile from "./pages/UpdateProfile";
+import UpdatePassword from "./pages/UpdatePassword";
 
 function App() {
 
-  const {user, setUser} = useContext(userContext);
+  const {user, setUser} = useContext(UserContext);
 
   useEffect(() =>{
     const fetchData = async () =>{
@@ -44,6 +48,18 @@ function App() {
           <Route path="/todo/create" element = {
             <ProtectedRoutes loggedIn={user._id ? true : false}>
               <CreateTodo />
+            </ProtectedRoutes>
+          } />
+
+        <Route path="/user/update" element = {
+            <ProtectedRoutes loggedIn={user._id ? true : false}>
+              <UpdateProfile />
+            </ProtectedRoutes>
+          } />
+
+<Route path="/user/updatepassword" element = {
+            <ProtectedRoutes loggedIn={user._id ? true : false}>
+              <UpdatePassword />
             </ProtectedRoutes>
           } />
         </Routes>

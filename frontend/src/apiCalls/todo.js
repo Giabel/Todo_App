@@ -17,7 +17,7 @@ export const CreateTodo = async (todo) => {
     }
 };
 
-export const getTodo = async (todo) => {
+export const getTodo = async (id) => {
     try{
         const res = await axios.get(`/api/todos/${id}`);
     }catch (err){
@@ -28,13 +28,13 @@ export const getTodo = async (todo) => {
 
 export const updateTodo = async (id, todo) => {
     try{
-        const res = await axios.put(`/api/todos/updates/${id}`, todo);
+        const res = await axios.put(`/api/todos/update/${id}`, todo);
     }catch (err){
         return err;
     }
 };
 
-export const deleteTodo = async (todo) => {
+export const deleteTodo = async (id) => {
     try{
         const res = await axios.delete(`/api/todos/delete/${id}`);
     }catch (err){
